@@ -177,6 +177,8 @@ impl<'probe> CoreInterface for Riscv32<'probe> {
     ) -> Result<crate::core::CoreInformation, crate::Error> {
         log::debug!("Resetting core, setting hartreset bit");
 
+        self.interface.write_word_8(0x71200050, 0x00)?;
+
         let mut dmcontrol = Dmcontrol(0);
         dmcontrol.set_dmactive(true);
         dmcontrol.set_hartreset(true);
