@@ -563,7 +563,7 @@ impl<'probe> CoreInterface for Riscv32<'probe> {
             // Read the trigger "configuration" data.
             let tdata_value = Mcontrol(self.read_csr(tdata1)?);
 
-            log::warn!("Breakpoint {}: {:?}", bp_unit_index, tdata_value);
+            log::info!("Breakpoint {}: {:?}", bp_unit_index, tdata_value);
 
             // The trigger must be active in at least a single mode
             let trigger_any_mode_active = tdata_value.m() || tdata_value.s() || tdata_value.u();
