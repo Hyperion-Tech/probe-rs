@@ -23,6 +23,7 @@ use crate::{
 
 pub mod amd;
 pub mod holtek;
+pub mod pachelbel;
 pub mod infineon;
 pub mod maxim;
 pub mod microchip;
@@ -103,6 +104,7 @@ static VENDORS: LazyLock<RwLock<Vec<&'static dyn Vendor>>> = LazyLock::new(|| {
         &sifli::Sifli,
         &renesas::Renesas,
         &wch::Wch,
+        &pachelbel::Pachelbel,
     ];
 
     RwLock::new(vendors)
