@@ -1340,7 +1340,7 @@ impl ActiveFlasher<'_, '_, Erase> {
                     r3: None,
                 },
                 false,
-                Duration::from_secs(40),
+                Duration::from_secs(300),
             )
             .map_err(|error| FlashError::ChipEraseFailed {
                 source: Box::new(error),
